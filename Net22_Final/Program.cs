@@ -6,7 +6,13 @@ namespace Net22_Final
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Subsccriber StockBroker = new Subsccriber("Securities Company");
+            Service StockExchange = new Service("Stock prices");
+
+            StockExchange.subscriptionList += StockBroker.onRequest;
+
+            StockExchange.send(StockExchange.Product, StockBroker.Name);
+
         }
     }
 }
